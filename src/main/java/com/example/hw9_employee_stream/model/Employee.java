@@ -18,16 +18,12 @@ public class Employee {
     @JsonProperty("name")
     private String name;
 
-    public String getName() throws ExistsException {
-        return validateService.validateString(name);
-    }
-
     @Positive
     private double salary;
     private int department;
 
     public Employee(String name, double salary, int department) {
-        this.name = name;
+        this.name =validateService.validateString(name);
         this.salary = salary;
         this.department = department;
     }
