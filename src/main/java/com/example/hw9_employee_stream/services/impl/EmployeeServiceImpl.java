@@ -15,15 +15,16 @@ import static java.util.Arrays.stream;
 public class EmployeeServiceImpl implements EmployeeService {
     private Employee[] employees = new Employee[100];
 
-    EmployeeServiceImpl(){
-        employees[0] = new Employee("Иванов Иван Иванович", 50_000, 1);
-        employees[1] = new Employee("Петров Петр Петрович", 1_000_000, 1);
-        employees[2] = new Employee("Сергеев Сергей Сергеевич", 2_000_000, 2);
-        employees[3] = new Employee("Андреева Анна Андреевна", 250_000, 2);
-        employees[4] = new Employee("Викоторов Виктор Викторович", 15_000, 2);
-        employees[5] = new Employee("Егоров Егор Егорович", 75_000, 3);
-        employees[6] = new Employee("Максимов Максим Максимович", 127_000, 4);
-        employees[7] = new Employee("Ульянова Ульяна Ульяновна", 58_000, 5);
+
+    EmployeeServiceImpl() {
+        employees[0] = new Employee("Иванов", 50_000, 1);
+        employees[1] = new Employee("Петров", 1_000_000, 1);
+        employees[2] = new Employee("Сергеев", 2_000_000, 2);
+        employees[3] = new Employee("Андреева", 250_000, 2);
+        employees[4] = new Employee("Викторов", 15_000, 2);
+        employees[5] = new Employee("Егоров", 75_000, 3);
+        employees[6] = new Employee("Максимов", 127_000, 4);
+        employees[7] = new Employee("Ульянова", 58_000, 5);
     }
 
 

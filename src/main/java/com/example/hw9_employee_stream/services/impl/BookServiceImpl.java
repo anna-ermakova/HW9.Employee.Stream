@@ -3,6 +3,7 @@ package com.example.hw9_employee_stream.services.impl;
 import com.example.hw9_employee_stream.exceptions.ExistsException;
 import com.example.hw9_employee_stream.model.Employee;
 import com.example.hw9_employee_stream.services.BookService;
+import com.example.hw9_employee_stream.services.ValidateService;
 import org.springframework.stereotype.Service;
 
 
@@ -12,10 +13,11 @@ import java.util.Map;
 
 @Service
 public class BookServiceImpl implements BookService {
+    private ValidateService validateService;
     private Map<String, Employee> staff = new HashMap<>();
 
     @Override
-    public void addEmployee(Employee employee) {
+    public void addEmployee(Employee employee) throws ExistsException {
         if (staff.keySet().stream().anyMatch(name -> name.equals(employee.getName()))) {
             throw new ExistsException("такой сотрудник уже есть");
         } else {
