@@ -3,13 +3,15 @@ package com.example.hw9_employee_stream.model;
 
 import com.example.hw9_employee_stream.services.ValidatorService;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 
 
 @EqualsAndHashCode
+@ToString
 public class Employee {
     public ValidatorService validateService;
     @NotBlank(message = "Обязательно для заполнения!")

@@ -8,7 +8,6 @@ import com.example.hw9_employee_stream.services.EmployeesService;
 import com.example.hw9_employee_stream.services.ValidatorService;
 import org.springframework.stereotype.Service;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,10 +18,11 @@ public class EmployeesServiceImpl implements EmployeesService {
 
     private static final int LIMIT = 10;
 
-    public EmployeesServiceImpl (ValidatorService validatorService) {
+    public EmployeesServiceImpl(ValidatorService validatorService) {
         this.validatorService = validatorService;
     }
-@Override
+
+    @Override
     public Employee addEmployee(String name,
                                 String surname,
                                 int department,
@@ -42,7 +42,8 @@ public class EmployeesServiceImpl implements EmployeesService {
         }
         throw new EmployeeStorageIsFullException();
     }
-@Override
+
+    @Override
     public Employee removeEmployee(String name,
                                    String surname) {
         Employee employee = employees.stream()
@@ -52,7 +53,8 @@ public class EmployeesServiceImpl implements EmployeesService {
         employees.remove(employee);
         return employee;
     }
-@Override
+
+    @Override
     public Employee getEmployee(String name,
                                 String surname) {
         return employees.stream()
@@ -60,7 +62,8 @@ public class EmployeesServiceImpl implements EmployeesService {
                 .findFirst()
                 .orElseThrow(EmployeeNotFoundException::new);
     }
-@Override
+
+    @Override
     public List<Employee> getAllEmp() {
         return new ArrayList<>(employees);
     }

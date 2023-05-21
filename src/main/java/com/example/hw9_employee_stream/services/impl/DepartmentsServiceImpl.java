@@ -6,7 +6,6 @@ import com.example.hw9_employee_stream.services.DepartmentsService;
 import com.example.hw9_employee_stream.services.EmployeesService;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -37,6 +36,7 @@ public class DepartmentsServiceImpl implements DepartmentsService {
                 .min()
                 .orElseThrow(DepartmentNotFoundException::new);
     }
+
     @Override
     public double sumSalaryFromDepartment(int departmentId) {
         return employeesService.getAllEmp().stream()
