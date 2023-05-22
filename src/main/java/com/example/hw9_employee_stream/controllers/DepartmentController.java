@@ -2,15 +2,12 @@ package com.example.hw9_employee_stream.controllers;
 
 import com.example.hw9_employee_stream.model.Employee;
 import com.example.hw9_employee_stream.services.DepartmentsService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/departments")
+@RequestMapping("/department")
 public class DepartmentController {
     private final DepartmentsService departmentsService;
 
@@ -18,18 +15,22 @@ public class DepartmentController {
         this.departmentsService = departmentsService;
     }
 
-    @GetMapping("/max-salary")
+    @GetMapping("/{id}/salary/max")
     public double employeeWithMaxSalaryFromDepartment(@RequestParam int departmentId) {
         return departmentsService.empWithMaxSalary(departmentId);
     }
 
-    @GetMapping("/min-salary")
+    @GetMapping("/{id}/salary/min")
     public double employeeWithMinSalaryFromDepartment(@RequestParam int departmentId) {
         return departmentsService.empWithMinSalary(departmentId);
     }
 
-    @GetMapping(value = "/all", params = "departmentId")
-    public List<Employee> employeesFromDepartment(@RequestParam int departmentId) {
+    @GetMapping("/{id}/salary/sum")
+    public double sumSalaryFromDepartment(@PathVariable int departmentId) {
+        return departmentsService.sumSalaryFromDepartment(departmentId);
+    }
+    @GetMapping(value = "/{id}/employees")
+    public List<Employee> employeesFromDepartment(@PathVariable int departmentId) {
         return departmentsService.employeesFromDepartment(departmentId);
     }
 }

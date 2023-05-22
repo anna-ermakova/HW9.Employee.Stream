@@ -13,7 +13,6 @@ import javax.validation.constraints.Positive;
 @EqualsAndHashCode
 @ToString
 public class Employee {
-    public ValidatorService validateService;
     @NotBlank(message = "Обязательно для заполнения!")
     @JsonProperty("name")
     private String name;
